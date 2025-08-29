@@ -1,0 +1,48 @@
+/* @font-face {
+    font-family: 'Caprasimo';
+    src: url('fonts/Caprasimo.woff2') format('woff2'),
+             url('fonts/Caprasimo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: "Caprasimo", sans-serif;
+} */
+
+* {
+    cursor: url('images/cherry.png'), auto;
+}
+
+body {
+    background-image: url("images/wpclouds2.png");
+    background-repeat: repeat;
+}
+
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.barriecito-regular {
+    font-family: "Barriecito", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.coiny-regular {
+    font-family: "Coiny", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.dynapuff-regular {
+    font-family: "DynaPuff", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
