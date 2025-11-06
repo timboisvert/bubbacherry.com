@@ -12,24 +12,121 @@
     <link rel="stylesheet" href="style.css">
     <meta name="description" content="Bubba Cherry is an offline humor magazine.">
     <link rel="icon" type="image/png" href="images/cherry.png">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #bbb;
+        }
+    </style>
 </head>
 
 <body class="bg-[#ADBFE0] flex flex-col items-center">
 
     <div class="p-0 m-10 w-[80%] md:w-[60%] lg:w-[40%] text-center bg-[#FFD41A] ">
 
-        <img src="images/issues/1.jpg" alt="Bubba Cherry Magazine Cover" class="p-0 mx-auto w-full">
+        <img src="images/issues/2.jpg" alt="Bubba Cherry Magazine Cover" class="p-0 mx-auto w-full">
 
         <div class="text-left bg-white p-5">
             <p class="text-2xl lg:text-4xl text-[#FF1001] dynapuff-regular">
                 Bubba Cherry is an offline humor magazine
             </p>
+
+            <div class="mt-6 text-sm font-serif leading-relaxed">
+                <p class="font-bold mb-2">Bubba Cherry may be found at the following locations:</p>
+                <ul class="pl-5 space-y-1 list-disc">
+                    <li>iO Theater</li>
+                    <li>The Annoyance Theater</li>
+                    <li>Logan Square Improv</li>
+                    <li>Reckless Records on Belmont</li>
+                    <li>Reckless Records on Milwaukee</li>
+                    <li>Quimby's</li>
+                    <li>On the side of the interstate</li>
+                    <li>Illegally around the SAIC campus</li>
+                    <li>Bric-a-Brac Records in Logan Square</li>
+                    <li>The Brew in Logan Square</li>
+                    <li>The Music Box Theater</li>
+                </ul>
+            </div>
+
             <p class="mt-4 text-xl font-serif underline">
                 <a href="mailto:TODO">info@bubbacherry.com</a>
             </p>
         </div>
 
     </div>
+
+    <!-- Previous Issues Section -->
+    <div class="p-0 m-10 w-[80%] md:w-[60%] lg:w-[40%] text-center bg-[#FFD41A]">
+        <div class="bg-white p-4">
+            <h2 class="text-xl font-bold text-[#FF1001] dynapuff-regular mb-3">Previous Issues</h2>
+            <img id="prevIssueThumb" src="images/issues/1.jpg" alt="Previous Issue"
+                class="mx-auto w-32 cursor-pointer hover:opacity-80 transition-opacity">
+        </div>
+    </div>
+
+    <!-- Modal for full image view -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content" src="" alt="Full Issue">
+    </div>
+
+    <script>
+        document.getElementById('prevIssueThumb').addEventListener('click', function () {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = this.src;
+            modal.classList.add('active');
+        });
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        document.getElementById('imageModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 
