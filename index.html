@@ -56,7 +56,7 @@
 
     <div class="p-0 m-10 w-[80%] md:w-[60%] lg:w-[40%] text-center bg-[#FFD41A] ">
 
-        <img src="images/issues/2.jpg" alt="Bubba Cherry Magazine Cover" class="p-0 mx-auto w-full">
+        <img src="images/issues/3.jpg" alt="Bubba Cherry Magazine Cover" class="p-0 mx-auto w-full">
 
         <div class="text-left bg-white p-5">
             <p class="text-2xl lg:text-4xl text-[#FF1001] dynapuff-regular">
@@ -74,8 +74,7 @@
                     <li>Quimby's</li>
                     <li>On the side of the interstate</li>
                     <li>Illegally around the SAIC campus</li>
-                    <li>Bric-a-Brac Records in Logan Square</li>
-                    <li>The Brew in Logan Square</li>
+                    <li>Wave Coffee in Logan Square</li>
                     <li>The Music Box Theater</li>
                 </ul>
             </div>
@@ -91,8 +90,12 @@
     <div class="p-0 m-10 w-[80%] md:w-[60%] lg:w-[40%] text-center bg-[#FFD41A]">
         <div class="bg-white p-4">
             <h2 class="text-xl font-bold text-[#FF1001] dynapuff-regular mb-3">Previous Issues</h2>
-            <img id="prevIssueThumb" src="images/issues/1.jpg" alt="Previous Issue"
-                class="mx-auto w-32 cursor-pointer hover:opacity-80 transition-opacity">
+            <div class="flex justify-center gap-4">
+                <img src="images/issues/1.jpg" alt="Issue 1"
+                    class="prev-issue-thumb w-32 cursor-pointer hover:opacity-80 transition-opacity">
+                <img src="images/issues/2.jpg" alt="Issue 2"
+                    class="prev-issue-thumb w-32 cursor-pointer hover:opacity-80 transition-opacity">
+            </div>
         </div>
     </div>
 
@@ -103,11 +106,13 @@
     </div>
 
     <script>
-        document.getElementById('prevIssueThumb').addEventListener('click', function () {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            modalImage.src = this.src;
-            modal.classList.add('active');
+        document.querySelectorAll('.prev-issue-thumb').forEach(function (thumb) {
+            thumb.addEventListener('click', function () {
+                const modal = document.getElementById('imageModal');
+                const modalImage = document.getElementById('modalImage');
+                modalImage.src = this.src;
+                modal.classList.add('active');
+            });
         });
 
         function closeModal() {
